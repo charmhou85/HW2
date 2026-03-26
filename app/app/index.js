@@ -88,10 +88,31 @@ const Header = () => {
 //主要畫面
 export default function Menu() {
     return (
+      <Header>
         <View style={styles.container}>
+            //pb
             <Text style={styles.PB}>Popular Books</Text>
+             <ScrollView horizontal showsVerticalScrollIndicator={false}>
+                {PB.map((book) => (
+                    <View key={book.id} style={styles.bookContainer}>
+                        <Image source={book.image} style={styles.bookImage} />
+                    </View>
+                ))}
+             </ScrollView>
+
+            //nb
             <Text style={styles.NewB}>Newest</Text>
+             <ScrollView horizontal showsVerticalScrollIndicator={false}>
+                {NewB.map((book) => (
+                    <View key={book.id} style={styles.bookContainer}>
+                        <Image source={book.image} style={styles.bookImage} />
+                    </View>
+                ))}
+             </ScrollView>
         </View>
+
+      </Header>
+
     );
 }
 
